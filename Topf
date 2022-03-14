@@ -1,11 +1,11 @@
-KLASSE TOPF von Iliya:
+Klasse Topf von Iliya:
 
 
 /**
  * Beschreiben Sie hier die Klasse Topf.
  * 
  * @author Iliya 
- * @version 0.1
+ * @version 1.0
  */
 public class Topf
 {
