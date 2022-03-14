@@ -2,7 +2,6 @@ Klasse Würfel von Iliya:
 
 import java.util.Random;
 /**
- * Beschreiben Sie hier die Klasse Wuerfel.
  * 
  * @author Iliya 
  * @version 1.0
@@ -20,10 +19,17 @@ public class Wuerfel
         
     }
 
+    /**
+     * Die punkte werden erstellt.
+     */
     public int punkteAngeben()
     {
         return punkte;
     }
+    
+    /**
+     * Es wird ein Zahl zwischen 1 bis 6 generiert.
+     */
     private int zufallsZahlAusgeben(){
          
       
@@ -35,6 +41,10 @@ public class Wuerfel
       
        return randomZahl;
     }
+    
+    /**
+     * Es wird ein zahl zwischen 1 bis 6 ausgerollt und per Konsole wiedergegeben.
+     */
     public void rollen()
     {
         punkte = zufallsZahlAusgeben();
