@@ -1,8 +1,8 @@
 Klasse Topf von Iliya:
 
 
+
 /**
- * Beschreiben Sie hier die Klasse Topf.
  * 
  * @author Iliya 
  * @version 1.0
@@ -12,18 +12,27 @@ public class Topf
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     private int einsatz;
     private int test;
-    public Topf()
+    /**
+    * Der Einsatz wird auf 0 gestellt.Die Konsole sendet eine Nachicht.
+    * 
+    */
+    public Topf()  
     {
         einsatz = 0;
         System.out.println("Geben sie Ihr einsatz ein.");
     }
 
-    public void einsatzAufnehmen(int pEinsatz)
+    /**Der abgegebene Einsatz wird aufgenommen
+       */
+    public void einsatzAufnehmen(int pEinsatz) 
     {
         einsatz += pEinsatz;
         System.out.println("Sie haben " + einsatz +" Credits aufgenommen.");
     }
+    
+    /**Einsatz wird abgegeben.*/
     public int einsatzAbgeben()
+    
     {
         int tempEinsatz;
         tempEinsatz = einsatz;
