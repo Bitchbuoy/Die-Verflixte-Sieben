@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Sound
+comment1.params=
+comment1.target=Sound()
+comment2.params=pgameWin
+comment2.target=void\ spieleSoundGewonnen(java.lang.String)
+comment3.params=pDateiName
+comment3.target=void\ spieleSoundVerloren(java.lang.String)
+comment4.params=pDateiName
+comment4.target=void\ spieleSoundHintergrund(java.lang.String)
+comment5.params=pDateiName
+comment5.target=void\ spieleSoundWuerfeln(java.lang.String)
+comment6.params=pDateiName
+comment6.target=void\ spieleSoundAbgeben(java.lang.String)
+numComments=7
