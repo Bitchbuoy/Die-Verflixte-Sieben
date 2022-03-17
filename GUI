@@ -26,10 +26,20 @@ public class GUI extends JFrame implements ActionListener
      spielv = new Spielverwaltung();
     }
     
-    public void actionPerformed(ActionEvent e)
+      public void actionPerformed(ActionEvent e)
     {
-         
-    }
+         if (e.getSource() == this.wuerfeln) {
+           addText(spielv.wuerfeln());
+        } else if (e.getSource() == this.allIn){
+            addText(spielv.allIn());
+        } else if (e.getSource() == this.einsatzSetzen){
+            addText(spielv.einsatzSetzen());
+        }else if (e.getSource() == this.zugAbgeben) {
+            addText(spielv.zugAbgeben());
+        }else if (e.getSource() == this.neuStart) {
+            addText(spielv.neuStart());
+        }
+  }
     
     public void createGUI()
     {
