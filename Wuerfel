@@ -20,7 +20,7 @@ public class Wuerfel
     }
 
     /**
-     * Die punkte werden erstellt.
+     * Die punkte werden ausgegeben.
      */
     public int punkteAngeben()
     {
@@ -28,7 +28,7 @@ public class Wuerfel
     }
     
     /**
-     * Es wird ein Zahl zwischen 1 bis 6 generiert.
+     * Es wird eine Zahl zwischen 1 bis 6 generiert.
      */
     private int zufallsZahlAusgeben(){
          
@@ -43,7 +43,7 @@ public class Wuerfel
     }
     
     /**
-     * Es wird ein zahl zwischen 1 bis 6 ausgerollt und per Konsole wiedergegeben.
+     * Es wird eine Zahl zwischen 1 bis 6 ausgerollt.
      */
     public void rollen()
     {
