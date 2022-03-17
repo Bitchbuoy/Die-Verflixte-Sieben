@@ -13,7 +13,7 @@ public class Topf
     private int einsatz;
     private int test;
     /**
-    * Der Einsatz wird auf 0 gestellt.Die Konsole sendet eine Nachicht.
+    * Der Topf wird erstellt und der Einsatz wird auf 0 gesetzt.
     * 
     */
     public Topf()  
@@ -22,7 +22,7 @@ public class Topf
         System.out.println("Geben sie Ihr einsatz ein.");
     }
 
-    /**Der abgegebene Einsatz wird aufgenommen
+    /**Der angegebene Einsatz wird aufgenommen
        */
     public void einsatzAufnehmen(int pEinsatz) 
     {
@@ -30,7 +30,7 @@ public class Topf
         System.out.println("Sie haben " + einsatz +" Credits aufgenommen.");
     }
     
-    /**Einsatz wird abgegeben.*/
+    /**Einsatz wird zurückgegeben und der Einsatz auf Null gesetzt.*/
     public int einsatzAbgeben()
     
     {
