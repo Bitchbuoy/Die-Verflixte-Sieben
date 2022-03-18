@@ -22,29 +22,36 @@ public class GUI extends JFrame implements ActionListener
           
     public void main(String[] args) {
      GUI neueGUI = new GUI();
-     neueGUI.createGUI();
-     spielv = new Spielverwaltung();
     }
     
-      public void actionPerformed(ActionEvent e)
+    public void actionPerformed(ActionEvent e)
     {
-         if (e.getSource() == this.wuerfeln) {
+        if (e.getSource() == this.wuerfeln) {
            addText(spielv.wuerfeln());
         } else if (e.getSource() == this.allIn){
             addText(spielv.allIn());
         } else if (e.getSource() == this.einsatzSetzen){
-            addText(spielv.einsatzSetzen());
+            addText(spielv.setzen(Integer.parseInt(eingabeFeld.getText())));
         }else if (e.getSource() == this.zugAbgeben) {
             addText(spielv.zugAbgeben());
         }else if (e.getSource() == this.neuStart) {
+            neuStart();
             addText(spielv.neuStart());
         }
-  }
+    }
+    
+    public void neuStart()
+    {
+        textfeld.selectAll();
+        textfeld.cut();
+        textfeld.setText("Wilkommen beim Spiel Verflixte Sieben! \n \n");
+        eingabeFeld.setText("Einsatz");
+    }
     
     public void createGUI()
     {
         JFrame meinJFrame = new JFrame();
-      meinJFrame.setTitle("Scooterdatenbank 0.4");
+      meinJFrame.setTitle("Verflixte Sieben");
       meinJFrame.setSize(800, 500);
       JPanel panel = new JPanel();
       panel.setLayout(new BorderLayout());
@@ -126,7 +133,8 @@ public class GUI extends JFrame implements ActionListener
     }
     public GUI()
     {
-        
+        spielv = new Spielverwaltung();
+        createGUI();
     }
     public void addText(String newText) {
       textfeld.append(newText);
