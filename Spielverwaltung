@@ -115,7 +115,7 @@ public class Spielverwaltung
     {
         String string = "";
         //boolean spieler.kannSetzen(pEinsatz) muss noch erstellt werden. soll nur prüfen ob der Einsatz kleiner als das vermoegen ist.
-        if (spieler1.kannSetzen(pEinsatz) == true && spieler2.kannSetzen(pEinsatz) == true){
+        if (pEinsatz <= spieler1.getVermoegen() && pEinsatz <= spieler2.getVermoegen()){
             spieler1.einsatzSetzen(pEinsatz);
             spieler2.einsatzSetzen(pEinsatz);
             gesetzt = true;
