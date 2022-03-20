@@ -30,6 +30,8 @@ public class Spielverwaltung
         spieler1.setName(name1);
         name2 = JOptionPane.showInputDialog("Name des zweiten Spielers:");
         spieler2.setName(name1);
+        startSpieler1 = true;
+        zugSpieler1 = true;
     }
     
     public void main (String[] args){
@@ -112,6 +114,7 @@ public class Spielverwaltung
     public String setzen(int pEinsatz)
     {
         String string = "";
+        //boolean spieler.kannSetzen(pEinsatz) muss noch erstellt werden. soll nur prüfen ob der Einsatz kleiner als das vermoegen ist.
         if (spieler1.kannSetzen(pEinsatz) == true && spieler2.kannSetzen(pEinsatz) == true){
             spieler1.einsatzSetzen(pEinsatz);
             spieler2.einsatzSetzen(pEinsatz);
@@ -187,8 +190,7 @@ public class Spielverwaltung
         startSpieler1 = true;
         zugSpieler1 = true;
         gesetzt = false;
-        spieler1.neueRunde();
-        spieler2.neueRunde();
+        // void neuesSpiel() soll das vermoegen auf 100 setzen und die wurfAnzahl auf null.
         spieler1.neuesSpiel();
         spieler2.neuesSpiel();
         int temp = topf.einsatzAbgeben();
