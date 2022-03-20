@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Topf
+comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Topf.\r\n\ \r\n\ @author\ Iliya\ \r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Topf()
+comment2.params=pEinsatz
+comment2.target=void\ einsatzAufnehmen(int)
+comment3.params=
+comment3.target=int\ einsatzAbgeben()
+comment4.params=
+comment4.target=int\ getEinsatz()
+numComments=5

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Wuerfel
+comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Wuerfel.\r\n\ \r\n\ @author\ Iliya\ \r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Wuerfel()
+comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Wuerfel\r\n
+comment2.params=
+comment2.target=int\ punkteAngeben()
+comment3.params=
+comment3.target=int\ zufallsZahlAusgeben()
+comment4.params=
+comment4.target=void\ rollen()
+numComments=5
