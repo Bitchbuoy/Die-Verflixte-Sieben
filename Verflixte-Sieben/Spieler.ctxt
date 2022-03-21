@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Spieler
+comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Spieler.\r\n\ \r\n\ @author\ (Christian\ R\u00F6\u00DFler)\ \r\n\ @version\ (0.4)\r\n
+comment1.params=
+comment1.target=Spieler()
+comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Spieler\r\n
+comment10.params=pName
+comment10.target=void\ setName(java.lang.String)
+comment2.params=pEinsatz
+comment2.target=void\ einsatzSetzen(int)
+comment3.params=
+comment3.target=void\ topfLeeren()
+comment4.params=
+comment4.target=void\ wuerfeln()
+comment5.params=
+comment5.target=int\ getWurfAnzahl()
+comment6.params=pEinsatz2
+comment6.target=void\ setStartGeld(int)
+comment7.params=
+comment7.target=int\ getVermoegen()
+comment8.params=
+comment8.target=int\ getPunkte()
+comment9.params=
+comment9.target=int\ getPunkteStand()
+numComments=11

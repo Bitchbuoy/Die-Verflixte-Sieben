@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Wuerfel
+comment0.text=\r\n\ \r\n\ @author\ Iliya\ \r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Wuerfel()
+comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Wuerfel\r\n
+comment2.params=
+comment2.target=int\ punkteAngeben()
+comment2.text=\r\n\ Die\ punkte\ werden\ ausgegeben.\r\n
+comment3.params=
+comment3.target=int\ zufallsZahlAusgeben()
+comment3.text=\r\n\ Es\ wird\ eine\ Zahl\ zwischen\ 1\ bis\ 6\ generiert.\r\n
+comment4.params=
+comment4.target=void\ rollen()
+comment4.text=\r\n\ Es\ wird\ eine\ Zahl\ zwischen\ 1\ bis\ 6\ ausgerollt.\r\n
+numComments=5
