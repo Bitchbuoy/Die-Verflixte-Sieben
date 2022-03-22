@@ -51,13 +51,13 @@ public class Spielverwaltung
         if (gesetzt == true){
             if (zugSpieler1 == true){
                 spieler1.wuerfeln();
-                tempPunkte = spieler1.punktestandAngeben();
+                tempPunkte = spieler1.getPunkteStand();
                 ausgabe = name1+ " hat eine "+ tempPunkte +" gewürfelt \n";
                 if (tempPunkte == 7){
                     score1 -= 7;
                     ausgabe += name1+ " hat jetzt "+ score1 +" Punkte \n \n";
                     ausgabe += tauschen();
-                } else if(spieler1.wurfAnzahlAngeben() == spieler2.wurfAnzahlAngeben()){
+                } else if(spieler1.getWurfAnzahl() == spieler2.getWurfAnzahl()){
                     score1 += tempPunkte;
                     ausgabe += name1+ " hat jetzt "+ score1 +" Punkte \n \n";
                     ausgabe += tauschen();
@@ -67,13 +67,13 @@ public class Spielverwaltung
                 }
             } else{
                 spieler2.wuerfeln();
-                tempPunkte = spieler2.punktestandAngeben();
+                tempPunkte = spieler2.getPunkteStand();
                 ausgabe = name2+ " hat eine "+ tempPunkte +" gewürfelt \n";
                 if (tempPunkte == 7){
                     score2 -= 7;
                     ausgabe += name2+ " hat jetzt "+ score2 +" Punkte \n \n";
                     ausgabe += tauschen();
-                } else if(spieler2.wurfAnzahlAngeben() == spieler1.wurfAnzahlAngeben()){
+                } else if(spieler2.getWurfAnzahl() == spieler1.getWurfAnzahl()){
                     score2 += tempPunkte;
                     ausgabe += name2+ " hat jetzt "+ score2 +" Punkte \n \n";
                     ausgabe += tauschen();
@@ -94,7 +94,7 @@ public class Spielverwaltung
         if (startSpieler1 == true){
             if (zugSpieler1 == true){
                 zugSpieler1 = false;
-                string = name2 + " ist jetzt dran \n \n";
+                string = name2 + " ist jetzt dran! \n \n";
             } else{
                 startSpieler1 = false;
                 string = auswerten() + "\n";
@@ -102,7 +102,7 @@ public class Spielverwaltung
         } else{
             if (zugSpieler1 == false){
                 zugSpieler1 = true;
-                string = name1 + " ist jetzt dran \n \n";
+                string = name1 + " ist jetzt dran! \n \n";
             } else{
                 startSpieler1 = true;
                 string = auswerten() + "\n";
@@ -120,8 +120,8 @@ public class Spielverwaltung
             spieler2.einsatzSetzen(pEinsatz);
             gesetzt = true;
             string = "Der Einsatz beträgt " + pEinsatz + "\n";
-            string += score1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
-            string += score2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n" + "\n";
+            string += name1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
+            string += name2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n" + "\n";
         } else{
             string = "Der Einsatz ist zu groß! \n \n";
         }
@@ -151,9 +151,9 @@ public class Spielverwaltung
     public String zugAbgeben()
     {
         String string = "";
-        if (zugSpieler1 == true && spieler1.wurfAnzahlAngeben() > 0){
+        if (zugSpieler1 == true && spieler1.getWurfAnzahl() > 0){
             string = tauschen();
-        } else if(zugSpieler1 == false && spieler2.wurfAnzahlAngeben() > 0){
+        } else if(zugSpieler1 == false && spieler2.getWurfAnzahl() > 0){
             string = tauschen();
         } else{
             string = "Du musst mindestens einmal Würfeln! \n \n";
@@ -191,8 +191,8 @@ public class Spielverwaltung
         zugSpieler1 = true;
         gesetzt = false;
         // void neuesSpiel() soll das vermoegen auf 100 setzen und die wurfAnzahl auf null.
-        spieler1.neuesSpiel();
-        spieler2.neuesSpiel();
+        // spieler1.neuesSpiel();
+        // spieler2.neuesSpiel();
         int temp = topf.einsatzAbgeben();
         return "Das Spiel wurde neu gestartet!";
     }
