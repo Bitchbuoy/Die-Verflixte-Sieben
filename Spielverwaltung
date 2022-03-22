@@ -196,4 +196,16 @@ public class Spielverwaltung
         int temp = topf.einsatzAbgeben();
         return "Das Spiel wurde neu gestartet! \n \n";
     }
+    
+    public void spieleSound(String pSoundName)
+    {
+        if (soundAn){
+            Sound neuerSound = new Sound();
+            try {
+                neuerSound.spieleSound(pSoundName);
+            } catch(Exception e) {
+                System.out.println("geht nicht!");
+            }
+        }
+    }
 }
