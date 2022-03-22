@@ -51,7 +51,7 @@ public class Spielverwaltung
         if (gesetzt == true){
             if (zugSpieler1 == true){
                 spieler1.wuerfeln();
-                tempPunkte = spieler1.getPunkteStand();
+                tempPunkte = spieler1.getPunkte();
                 ausgabe = name1+ " hat eine "+ tempPunkte +" gewürfelt \n";
                 if (tempPunkte == 7){
                     score1 -= 7;
@@ -67,7 +67,7 @@ public class Spielverwaltung
                 }
             } else{
                 spieler2.wuerfeln();
-                tempPunkte = spieler2.getPunkteStand();
+                tempPunkte = spieler2.getPunkte();
                 ausgabe = name2+ " hat eine "+ tempPunkte +" gewürfelt \n";
                 if (tempPunkte == 7){
                     score2 -= 7;
@@ -178,8 +178,8 @@ public class Spielverwaltung
         } else{
             string = name2 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
         }
-        string += score1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
-        string += score2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n" + "\n";
+        string += name1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
+        string += name2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n" + "\n";
         return string;
     }
     
@@ -191,9 +191,9 @@ public class Spielverwaltung
         zugSpieler1 = true;
         gesetzt = false;
         // void neuesSpiel() soll das vermoegen auf 100 setzen und die wurfAnzahl auf null.
-        // spieler1.neuesSpiel();
-        // spieler2.neuesSpiel();
+        spieler1.neuesSpiel();
+        spieler2.neuesSpiel();
         int temp = topf.einsatzAbgeben();
-        return "Das Spiel wurde neu gestartet!";
+        return "Das Spiel wurde neu gestartet! \n \n";
     }
 }
