@@ -14,34 +14,23 @@ public class Spieler
     private int wurfAnzahl;
     private int vermoegen;
     private int punkte;
-    private int punkteStand;
-    private int einsatz;
-    private int x; //Hilfe für Vermoegen am Start
     /**
      * Konstruktor für Objekte der Klasse Spieler
      */
-    public Spieler()
+    public Spieler(Wuerfel pWuerfel1, Wuerfel pWuerfel2, Topf pTopf)
     {
-        wuerfel1 = new Wuerfel();
-        wuerfel2 = new Wuerfel();
-        topf = new Topf();
+        wuerfel1 = pWuerfel1;
+        wuerfel2 = pWuerfel2;
+        topf = pTopf;
         vermoegen = 100;
     }
     
     public void einsatzSetzen(int pEinsatz)
     {
         //Einsatz wird richtig in der Konsole nach Ausführen ausgegeben, aber die Methoden beim Topf geben danach alle 0 aus.
-        einsatz = pEinsatz;
-        
-        if(einsatz > vermoegen)
-        {
-            System.out.println("Der Einsatz übertrifft dein Vermoegen!");
-        }else if(einsatz < vermoegen/** || einsatz = vermoegen**/)
-        {
-            vermoegen = vermoegen - einsatz;
-            topf.einsatzAufnehmen(einsatz);
-            System.out.println("Du hast " + einsatz + " Münze(n) gesetzt. Dein neues Vermögen beträgt " + vermoegen + " Münze(n).");
-        }
+        vermoegen = vermoegen - pEinsatz;
+        topf.einsatzAufnehmen(pEinsatz);
+        System.out.println("Du hast " + pEinsatz + " Münze(n) gesetzt. Dein neues Vermögen beträgt " + vermoegen + " Münze(n).");
     }
     
     public void topfLeeren()
@@ -50,6 +39,7 @@ public class Spieler
         int tempEinsatz = topf.einsatzAbgeben();
         vermoegen += tempEinsatz;
         tempEinsatz = 0;
+        wurfAnzahl = 0;
         System.out.println("Sie haben jetzt " + vermoegen + " Credits!");
     }
     
@@ -67,11 +57,6 @@ public class Spieler
         return wurfAnzahl;
     }
     
-    public void setStartGeld(int pEinsatz2)
-    {
-        vermoegen = pEinsatz2;
-    }
-    
     public int getVermoegen()
     {
         return vermoegen;
@@ -82,13 +67,14 @@ public class Spieler
         return punkte;
     }
     
-    public int getPunkteStand()
-    {
-        return punkteStand;
-    }
-    
     public void setName(String pName)
     {
         name = pName;
+    }
+    
+    public void neuesSpiel()
+    {
+        vermoegen = 100;
+        wurfAnzahl = 0;
     }
 }
