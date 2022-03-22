@@ -10,11 +10,13 @@ public class Spieler
     private Wuerfel wuerfel1;
     private Wuerfel wuerfel2;
     private Topf topf;
+    private String name;
     private int wurfAnzahl;
     private int vermoegen;
     private int punkte;
     private int punkteStand;
     private int einsatz;
+    private int x; //Hilfe für Vermoegen am Start
     /**
      * Konstruktor für Objekte der Klasse Spieler
      */
@@ -23,13 +25,14 @@ public class Spieler
         wuerfel1 = new Wuerfel();
         wuerfel2 = new Wuerfel();
         topf = new Topf();
-
+        vermoegen = 100;
     }
     
     public void einsatzSetzen(int pEinsatz)
     {
         //Einsatz wird richtig in der Konsole nach Ausführen ausgegeben, aber die Methoden beim Topf geben danach alle 0 aus.
         einsatz = pEinsatz;
+        
         if(einsatz > vermoegen)
         {
             System.out.println("Der Einsatz übertrifft dein Vermoegen!");
@@ -82,5 +85,10 @@ public class Spieler
     public int getPunkteStand()
     {
         return punkteStand;
+    }
+    
+    public void setName(String pName)
+    {
+        name = pName;
     }
 }
