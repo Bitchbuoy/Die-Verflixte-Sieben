@@ -93,11 +93,13 @@ public class GUI extends JFrame implements ActionListener
       eingabeFeld = new JTextField();
       eingabeFeld.setColumns(10);
       
-      buttonPanel.add(wuerfeln);
-      buttonPanel.add(einsatzSetzen);
-      buttonPanel.add(zugAbgeben);
-      buttonPanel.add(allIn);
       buttonPanel.add(eingabeFeld);
+      buttonPanel.add(einsatzSetzen);
+      buttonPanel.add(allIn);
+      buttonPanel.add(wuerfeln);
+      buttonPanel.add(zugAbgeben);
+      buttonPanel.add(neuStart);
+      
       
       buttonPanel.setBackground(new Color(85,95,98));
       buttonPanel.setForeground(Color.white);
@@ -120,15 +122,14 @@ public class GUI extends JFrame implements ActionListener
       neuStart.setBackground(new Color( 71, 78, 80 ));
       neuStart.setForeground(new Color(152,250,11));
       
-      panel.add(buttonPanel, BorderLayout.PAGE_START);
       panel.add(picturePanel, BorderLayout.LINE_END);
-      panel.add(bottomPanel, BorderLayout.PAGE_END);
+      panel.add(buttonPanel, BorderLayout.PAGE_END);
       try {
          BufferedImage myPicture = ImageIO.read(new File("logo.png"));
          JLabel picLabel = new JLabel(new ImageIcon(myPicture));
          picturePanel.add(picLabel);
      } catch(Exception e) {
-         addText("Bilddatei fehlt.");
+         
      }
     }
     public GUI()
