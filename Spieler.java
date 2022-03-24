@@ -38,16 +38,12 @@ public class Spieler
         System.out.println("Du hast " + pEinsatz + " Credit(s) gesetzt. Dein neues Vermögen beträgt " + vermoegen + " Credit(s).");
     }
     /**
-     * Wenn ein Spieler verliert wird dem Anderen mit dieser Methode der 
-     * gesamte Inhalt aus dem Topf gutgeschrieben , welcher danach wieder 
-     * so wie Wurf-Anzahl auf 0 gesetzt wird.
+     * Wenn ein Spieler gewinnt nimmt er sich den Einsatz aus dem Topf.
      */
     public void topfLeeren()
     {
         int tempEinsatz = topf.einsatzAbgeben();
         vermoegen += tempEinsatz;
-        tempEinsatz = 0;
-        wurfAnzahl = 0;
         System.out.println("Sie haben jetzt " + vermoegen + " Credit(s)!");
     }
     /**
@@ -101,6 +97,13 @@ public class Spieler
     public void neuesSpiel()
     {
         vermoegen = 100;
+        wurfAnzahl = 0;
+    }
+    /**
+     * Die wurfAnzahl wird auf null gesetzt.
+     */
+     public void neueRunde()
+    {
         wurfAnzahl = 0;
     }
 }
