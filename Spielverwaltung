@@ -12,7 +12,7 @@ public class Spielverwaltung
     private Topf topf;
     private Wuerfel wuerfel1, wuerfel2;
     private String name1, name2;
-    private boolean zugSpieler1, startSpieler1, gesetzt;
+    private boolean zugSpieler1, startSpieler1, gesetzt, soundAn, spiel;
     private int score1, score2;
     
     /**
@@ -32,6 +32,8 @@ public class Spielverwaltung
         spieler2.setName(name1);
         startSpieler1 = true;
         zugSpieler1 = true;
+        soundAn = true;
+        spiel = true;
     }
     
     public void main (String[] args){
@@ -49,6 +51,11 @@ public class Spielverwaltung
         String ausgabe = "";
         int tempPunkte;
         if (gesetzt == true){
+            try {
+                spieleSound("rollDice.mp3");
+            } catch(Exception e){
+                System.out.println("rollDice geht nicht!");
+            }
             if (zugSpieler1 == true){
                 spieler1.wuerfeln();
                 tempPunkte = spieler1.getPunkte();
@@ -142,8 +149,17 @@ public class Spielverwaltung
         }
         string += name1+ " hat jetzt "+ spieler1.getVermoegen() + "\n";
         string += name2+ " hat jetzt "+ spieler2.getVermoegen() + "\n";
+        if (spieler1.getVermoegen() == 0){
+            spiel = false;
+            string += name1 + " hat kein Geld mehr. Das Spiel ist vorbei! \n";
+        } else if (spieler2.getVermoegen() == 0){
+            spiel = false;
+            string += name2 + " hat kein Geld mehr. Das Spiel ist vorbei! \n";
+        }
         score1 = 0;
         score2 = 0;
+        spieler1.neueRunde();
+        spieler2.neueRunde();
         gesetzt = false;
         return string;
     }
@@ -165,21 +181,25 @@ public class Spielverwaltung
     {
         String string = "";
         int pEinsatz;
-        if (spieler1.getVermoegen() <= spieler2.getVermoegen()){
-            pEinsatz = spieler1.getVermoegen();
+        if (spieler1.getVermoegen() != 0 && spieler1.getVermoegen() != 0){
+            if (spieler1.getVermoegen() <= spieler2.getVermoegen()){
+                pEinsatz = spieler1.getVermoegen();
+            } else{
+                pEinsatz = spieler2.getVermoegen();
+            }
+            spieler1.einsatzSetzen(pEinsatz);
+            spieler2.einsatzSetzen(pEinsatz);
+            gesetzt = true;
+            if (zugSpieler1 == true){
+                string = name1 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
+            } else{
+                string = name2 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
+            }
+            string += name1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
+            string += name2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n \n";
         } else{
-            pEinsatz = spieler2.getVermoegen();
+            string = "Ein Spieler hat kein Geld mehr! \n \n";
         }
-        spieler1.einsatzSetzen(pEinsatz);
-        spieler2.einsatzSetzen(pEinsatz);
-        gesetzt = true;
-        if (zugSpieler1 == true){
-            string = name1 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
-        } else{
-            string = name2 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
-        }
-        string += name1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
-        string += name2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n" + "\n";
         return string;
     }
     
