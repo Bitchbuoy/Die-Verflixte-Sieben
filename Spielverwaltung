@@ -181,7 +181,7 @@ public class Spielverwaltung
     {
         String string = "";
         int pEinsatz;
-        if (spieler1.getVermoegen() != 0 && spieler1.getVermoegen() != 0){
+        if (spieler1.getVermoegen() != 0 && spieler2.getVermoegen() != 0){
             if (spieler1.getVermoegen() <= spieler2.getVermoegen()){
                 pEinsatz = spieler1.getVermoegen();
             } else{
