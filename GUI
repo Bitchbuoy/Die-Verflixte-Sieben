@@ -15,11 +15,13 @@ import java.io.File;
 public class GUI extends JFrame implements ActionListener
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private JButton wuerfeln, allIn, einsatzSetzen, zugAbgeben, neuStart;
+    private JButton wuerfeln, allIn, einsatzSetzen, zugAbgeben, neuStart, switchMode;
     private JTextArea textfeld; 
     private JTextField eingabeFeld;
+    private boolean lightMode;
+    private JPanel buttonPanel;
     private Spielverwaltung spielv;
-          
+    
     public void main(String[] args) {
      GUI neueGUI = new GUI();
     }
@@ -37,6 +39,8 @@ public class GUI extends JFrame implements ActionListener
         }else if (e.getSource() == this.neuStart) {
             neuStart();
             addText(spielv.neuStart());
+        }else if (e.getSource() == this.switchMode) {
+            switchMode();
         }
     }
     
@@ -45,7 +49,48 @@ public class GUI extends JFrame implements ActionListener
         textfeld.selectAll();
         textfeld.cut();
         textfeld.setText("Wilkommen beim Spiel Verflixte Sieben! \n \n");
-        eingabeFeld.setText("Einsatz");
+    }
+    
+    public void switchMode()
+    {
+           if (lightMode == false){
+          lightMode = true;
+          wuerfeln.setBackground(new Color( 255, 255, 255 ));
+          wuerfeln.setForeground(new Color(0, 0, 0));
+          einsatzSetzen.setBackground(new Color( 255, 255, 255 ));
+          einsatzSetzen.setForeground(new Color(0, 0, 0));
+          zugAbgeben.setBackground(new Color( 255, 255, 255 ));
+          zugAbgeben.setForeground(new Color(0, 0, 0));
+          allIn.setBackground(new Color( 255, 255, 255 ));
+          allIn.setForeground(new Color(0, 0, 0));
+          neuStart.setBackground(new Color( 255, 255, 255 ));
+          neuStart.setForeground(new Color(0, 0, 0));
+          switchMode.setBackground(new Color( 255, 255, 255 ));
+          switchMode.setForeground(new Color(0, 0, 0));
+          textfeld.setBackground(new Color(255, 255, 255));
+          textfeld.setForeground(new Color(0, 0, 0));
+          buttonPanel.setBackground(new Color(255, 255, 255));
+          buttonPanel.setForeground(new Color(255, 255, 255));
+         }
+         else {
+          lightMode = false;  
+          wuerfeln.setBackground(new Color( 71, 78, 80 ));
+          wuerfeln.setForeground(new Color(221,200,34));
+          einsatzSetzen.setBackground(new Color( 71, 78, 80 ));
+          einsatzSetzen.setForeground(new Color(221,200,34));
+          zugAbgeben.setBackground(new Color( 71, 78, 80 ));
+          zugAbgeben.setForeground(new Color(221,200,34));
+          allIn.setBackground(new Color( 71, 78, 80 ));
+          allIn.setForeground(new Color(221,200,34));
+          neuStart.setBackground(new Color( 71, 78, 80 ));
+          neuStart.setForeground(new Color(221,200,34));
+          switchMode.setBackground(new Color( 71, 78, 80 ));
+          switchMode.setForeground(new Color(221,200,34));
+          textfeld.setBackground(new Color(71, 78, 80));
+          textfeld.setForeground(new Color(221,200,34));
+          buttonPanel.setBackground(new Color(71, 78, 80));
+          buttonPanel.setForeground(new Color(71, 78, 80));
+         }
     }
     
     public void createGUI()
@@ -69,7 +114,7 @@ public class GUI extends JFrame implements ActionListener
       
       textfeld.setWrapStyleWord(true);
       textfeld.setBackground(new Color(110,122,126));
-      textfeld.setForeground(new Color(152,250,11));
+      textfeld.setForeground(new Color(221,200,34));
       Font font = new Font("Casino", Font.PLAIN, 15);
       textfeld.setFont(font);
       
@@ -90,6 +135,8 @@ public class GUI extends JFrame implements ActionListener
       allIn.addActionListener(this);
       neuStart = new JButton("Spiel neu starten.");
       neuStart.addActionListener(this);
+      switchMode = new JButton("switch Mode");
+      switchMode.addActionListener(this);
       eingabeFeld = new JTextField();
       eingabeFeld.setColumns(10);
       
@@ -99,6 +146,7 @@ public class GUI extends JFrame implements ActionListener
       buttonPanel.add(wuerfeln);
       buttonPanel.add(zugAbgeben);
       buttonPanel.add(neuStart);
+      buttonPanel.add(switchMode);
       
       
       buttonPanel.setBackground(new Color(85,95,98));
@@ -110,17 +158,20 @@ public class GUI extends JFrame implements ActionListener
       zugAbgeben.setFont(buttonFont);
       allIn.setFont(buttonFont);
       neuStart.setFont(buttonFont);
+      switchMode.setFont(buttonFont);
       
       wuerfeln.setBackground(new Color( 71, 78, 80 ));
-      wuerfeln.setForeground(new Color(152,250,11));
+      wuerfeln.setForeground(new Color(221,200,34));
       einsatzSetzen.setBackground(new Color( 71, 78, 80 ));
-      einsatzSetzen.setForeground(new Color(152,250,11));
+      einsatzSetzen.setForeground(new Color(221,200,34));
       zugAbgeben.setBackground(new Color( 71, 78, 80 ));
-      zugAbgeben.setForeground(new Color(152,250,11));
+      zugAbgeben.setForeground(new Color(221,200,34));
       allIn.setBackground(new Color( 71, 78, 80 ));
-      allIn.setForeground(new Color(152,250,11));
+      allIn.setForeground(new Color(221,200,34));
       neuStart.setBackground(new Color( 71, 78, 80 ));
-      neuStart.setForeground(new Color(152,250,11));
+      neuStart.setForeground(new Color(221,200,34));
+      switchMode.setBackground(new Color( 71, 78, 80 ));
+      switchMode.setForeground(new Color(221,200,34));
       
       panel.add(picturePanel, BorderLayout.LINE_END);
       panel.add(buttonPanel, BorderLayout.PAGE_END);
@@ -141,3 +192,4 @@ public class GUI extends JFrame implements ActionListener
       textfeld.append(newText);
     }
 }
+
