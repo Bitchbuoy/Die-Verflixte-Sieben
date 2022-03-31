@@ -121,17 +121,21 @@ public class Spielverwaltung
     public String setzen(int pEinsatz)
     {
         String string = "";
-        //boolean spieler.kannSetzen(pEinsatz) muss noch erstellt werden. soll nur prüfen ob der Einsatz kleiner als das vermoegen ist.
-        if (pEinsatz <= spieler1.getVermoegen() && pEinsatz <= spieler2.getVermoegen()){
-            spieler1.einsatzSetzen(pEinsatz);
-            spieler2.einsatzSetzen(pEinsatz);
-            gesetzt = true;
-            string = "Der Einsatz beträgt " + pEinsatz + "\n";
-            string += name1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
-            string += name2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n" + "\n";
+        if (gesetzt == false){
+            if (pEinsatz <= spieler1.getVermoegen() && pEinsatz <= spieler2.getVermoegen()){
+                spieler1.einsatzSetzen(pEinsatz);
+                spieler2.einsatzSetzen(pEinsatz);
+                gesetzt = true;
+                string = "Der Einsatz beträgt " + pEinsatz + "\n";
+                string += name1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
+                string += name2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n" + "\n";
+            } else{
+                string = "Der Einsatz ist zu groß! \n \n";
+            }
         } else{
-            string = "Der Einsatz ist zu groß! \n \n";
+            string = "Es wurde bereits gesetzt! \n \n";
         }
+        //boolean spieler.kannSetzen(pEinsatz) muss noch erstellt werden. soll nur prüfen ob der Einsatz kleiner als das vermoegen ist.
         return string;
     }
     
@@ -181,24 +185,28 @@ public class Spielverwaltung
     {
         String string = "";
         int pEinsatz;
-        if (spieler1.getVermoegen() != 0 && spieler2.getVermoegen() != 0){
-            if (spieler1.getVermoegen() <= spieler2.getVermoegen()){
-                pEinsatz = spieler1.getVermoegen();
+        if (gesetzt == false){
+            if (spieler1.getVermoegen() != 0 && spieler2.getVermoegen() != 0){
+                if (spieler1.getVermoegen() <= spieler2.getVermoegen()){
+                    pEinsatz = spieler1.getVermoegen();
+                } else{
+                    pEinsatz = spieler2.getVermoegen();
+                }
+                spieler1.einsatzSetzen(pEinsatz);
+                spieler2.einsatzSetzen(pEinsatz);
+                gesetzt = true;
+                if (zugSpieler1 == true){
+                    string = name1 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
+                } else{
+                    string = name2 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
+                }
+                string += name1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
+                string += name2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n \n";
             } else{
-                pEinsatz = spieler2.getVermoegen();
+                string = "Ein Spieler hat kein Geld mehr! \n \n";
             }
-            spieler1.einsatzSetzen(pEinsatz);
-            spieler2.einsatzSetzen(pEinsatz);
-            gesetzt = true;
-            if (zugSpieler1 == true){
-                string = name1 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
-            } else{
-                string = name2 + " geht All In! Der Einsatz beträgt " + pEinsatz + "\n";
-            }
-            string += name1 + " hat jetzt noch " + spieler1.getVermoegen() + "\n";
-            string += name2 + " hat jetzt noch " + spieler2.getVermoegen() + "\n \n";
         } else{
-            string = "Ein Spieler hat kein Geld mehr! \n \n";
+            string = "Es wurde bereits gesetzt! \n \n";
         }
         return string;
     }
